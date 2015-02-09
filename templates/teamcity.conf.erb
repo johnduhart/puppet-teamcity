@@ -1,0 +1,11 @@
+description "JetBrains TeamCity"
+
+start on runlevel [2345]
+stop on runlevel [!2345]
+
+setuid teamcity
+setgid teamcity
+
+env TEAMCITY_DATA_PATH="<%= scope.lookupvar('teamcity::datadir') %>"
+
+exec <%= scope.lookupvar('teamcity::webappdir') %>/bin/teamcity-server.sh run
