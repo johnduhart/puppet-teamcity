@@ -7,5 +7,6 @@ setuid teamcity
 setgid teamcity
 
 env TEAMCITY_DATA_PATH="<%= scope.lookupvar('teamcity::datadir') %>"
+env TEAMCITY_SERVER_MEM_OPTS="-Xms<%= scope.lookupvar('teamcity::jvm_xms') %> -Xmx<%= scope.lookupvar('teamcity::jvm_xmx') %> -XX:MaxPermSize=<%= scope.lookupvar('teamcity::jvm_permgen') %>"
 
 exec <%= scope.lookupvar('teamcity::webappdir') %>/bin/teamcity-server.sh run

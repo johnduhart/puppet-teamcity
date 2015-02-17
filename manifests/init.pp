@@ -7,6 +7,11 @@ class teamcity(
   $user         = 'teamcity',
   $group        = 'teamcity',
 
+  # Java Options
+  $jvm_xms      = '256m',
+  $jvm_xmx      = '1024m',
+  $jvm_permgen  = '256m',
+
   # Database Settings
   $dbuser       = 'teamcity',
   $dbpassword   = 'password',
